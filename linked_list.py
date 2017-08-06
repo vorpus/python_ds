@@ -20,6 +20,12 @@ class LinkedList(object):
             else:
                 self.head = LinkedListNode(val)
 
+    def get_tail(self):
+        head = self.head
+        while head.next:
+            head = head.next
+        return head
+
 
 class LinkedListNode(object):
     """Node class
@@ -31,6 +37,15 @@ class LinkedListNode(object):
     def __init__(self, value):
         self.value = value
         self.next = None
+
+    def append(self, value):
+        if self.next:
+            self.next.append(value)
+        else:
+            if isinstance(value, LinkedListNode):
+                self.next = value
+            else:
+                self.next = LinkedListNode(value)
 
 def main():
     """Run examples"""

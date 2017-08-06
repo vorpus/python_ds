@@ -12,6 +12,17 @@ class TestLinkedListNode(unittest.TestCase):
         test_node = LinkedListNode(4)
         self.assertEqual(test_node.value, 4)
 
+    def test_get_tail(self):
+        test_list = LinkedList()
+        test_node_1 = LinkedListNode(1)
+        test_node_2 = LinkedListNode(2)
+        test_node_3 = LinkedListNode(3)
+        test_list.append(test_node_1)
+        test_list.append(test_node_2)
+        test_list.append(test_node_3)
+        self.assertEqual(test_list.get_tail().value, 3)
+
+
 class TestLinkedList(unittest.TestCase):
 
     def test_init(self):
@@ -40,7 +51,7 @@ class TestLinkedList(unittest.TestCase):
         test_list.append(test_node_3)
         self.assertEqual(test_list.head.value, 1)
         self.assertEqual(test_list.head.next.value, 2)
-        self.assertEqual(test_list.head.next.next.value, 2)
+        self.assertEqual(test_list.head.next.next.value, 3)
 
 def main():
     unittest.main()
