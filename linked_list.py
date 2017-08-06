@@ -11,7 +11,14 @@ class LinkedList(object):
     def __init__(self):
         self.head = None
 
-    # def add(self, val):
+    def append(self, val):
+        if self.head:
+            self.head.append(val)
+        else:
+            if isinstance(val, LinkedListNode):
+                self.head = val
+            else:
+                self.head = LinkedListNode(val)
 
 
 class LinkedListNode(object):
