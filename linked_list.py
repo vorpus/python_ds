@@ -64,21 +64,19 @@ class LinkedList(object):
                         node2.next = node2.next.next
                 node2 = node2.next
             node1 = node1.next
-        # current_node = self.head
-        # while current_node.next:
-        #     last_before_dup = current_node
-        #     if last_before_dup.next:
-        #         next_node = last_before_dup.next
-        #         while next_node.value == current_node.value:
-        #             last_before_dup.next = next_node.next
-        #             next_node = last_before_dup.next
-        #             if isinstance(next_node, type(None)):
-        #                 break
-        #         current_node = current_node.next
-        #         if isinstance(current_node, type(None)):
-        #             break
 
-    # 2 3 2 5 6 1 2 2
+    def nth_to_last(self, n):
+        current_node = self.head
+        nth_node = current_node
+        for _ in range(0, n):
+            if nth_node:
+                nth_node = nth_node.next
+            else:
+                return None
+        while nth_node.next:
+            current_node = current_node.next
+            nth_node = nth_node.next
+        return current_node
 
 class LinkedListNode(object):
     """Node class
