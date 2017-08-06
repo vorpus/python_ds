@@ -78,6 +78,31 @@ class LinkedList(object):
             nth_node = nth_node.next
         return current_node
 
+    @staticmethod
+    def add_linked_list(list1, list2):
+        node1 = list1.head
+        node2 = list2.head
+        new_list = None
+        new_list_last = None
+        carry = 0
+        while node1 and node2:
+            new_node_value = (carry + node1.value + node2.value)
+            carry = 0
+            if new_node_value >= 10:
+                carry = 1
+                new_node_value = new_node_value % 10
+            if new_list:
+                new_list_last.next = LinkedListNode(new_node_value)
+                new_list_last = new_list_last.next
+            else:
+                new_list = LinkedListNode(new_node_value)
+                new_list_last = new_list
+            node1 = node1.next
+            node2 = node2.next
+        new_list_last.next = node1 or node2
+        return new_list
+
+
 class LinkedListNode(object):
     """Node class
 
@@ -97,6 +122,17 @@ class LinkedListNode(object):
                 self.next = value
             else:
                 self.next = LinkedListNode(value)
+
+    def to_s(self):
+        to_str = ''
+        node = self
+        while node:
+            to_str += str(node.value)
+            if node.next:
+                to_str += ' '
+            node = node.next
+        return to_str
+
 
     def delete_next(self):
         if self.next:
