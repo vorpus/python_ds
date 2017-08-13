@@ -12,6 +12,11 @@ class Stack(object):
     def pop(self):
         return self.values.pop()
 
+    def peek(self):
+        if len(self.values) == 0:
+            return None
+        return self.values[len(self.values) - 1]
+
 class Queue(object):
     def __init__(self):
         self.values = []

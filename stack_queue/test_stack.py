@@ -23,6 +23,15 @@ class TestStack(unittest.TestCase):
         self.assertEqual(stack.pop(), 2)
         self.assertEqual(stack.pop(), 1)
 
+    def test_peek(self):
+        stack = Stack()
+        stack.push(5)
+        self.assertEqual(stack.peek(), 5)
+        stack.push(3)
+        self.assertEqual(stack.peek(), 3)
+        stack.push(12)
+        self.assertEqual(stack.peek(), 12)
+
 class TestQueue(unittest.TestCase):
     def test_enqueue(self):
         queue = Queue()
