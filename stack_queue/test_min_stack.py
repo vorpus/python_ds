@@ -45,9 +45,6 @@ class TestMinStack(unittest.TestCase):
         test_min_stack.pop()
         self.assertEqual(test_min_stack.peek_min(), None)
 
-
-
-
 def main():
     unittest.main()
 
